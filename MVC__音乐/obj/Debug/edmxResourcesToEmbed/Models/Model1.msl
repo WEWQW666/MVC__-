@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="musicDBModelStoreContainer" CdmEntityContainer="musicDBEntities5">
+    <EntitySetMapping Name="admin">
+      <EntityTypeMapping TypeName="musicDBModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+          <ScalarProperty Name="loginId" ColumnName="loginId" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="adminName" ColumnName="adminName" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="area">
+      <EntityTypeMapping TypeName="musicDBModel.area">
+        <MappingFragment StoreEntitySet="area">
+          <ScalarProperty Name="areaId" ColumnName="areaId" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cd">
+      <EntityTypeMapping TypeName="musicDBModel.cd">
+        <MappingFragment StoreEntitySet="cd">
+          <ScalarProperty Name="CDId" ColumnName="CDId" />
+          <ScalarProperty Name="CDName" ColumnName="CDName" />
+          <ScalarProperty Name="coverUrl" ColumnName="coverUrl" />
+          <ScalarProperty Name="songCount" ColumnName="songCount" />
+          <ScalarProperty Name="publishDate" ColumnName="publishDate" />
+          <ScalarProperty Name="singerId" ColumnName="singerId" />
+          <ScalarProperty Name="introduce" ColumnName="introduce" />
+          <ScalarProperty Name="collectionCount" ColumnName="collectionCount" />
+          <ScalarProperty Name="CDstateId" ColumnName="CDstateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="img">
+      <EntityTypeMapping TypeName="musicDBModel.img">
+        <MappingFragment StoreEntitySet="img">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="jianjie" ColumnName="jianjie" />
+          <ScalarProperty Name="src" ColumnName="src" />
+          <ScalarProperty Name="cdId" ColumnName="cdId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="singer">
+      <EntityTypeMapping TypeName="musicDBModel.singer">
+        <MappingFragment StoreEntitySet="singer">
+          <ScalarProperty Name="singerId" ColumnName="singerId" />
+          <ScalarProperty Name="singerName" ColumnName="singerName" />
+          <ScalarProperty Name="accessCount" ColumnName="accessCount" />
+          <ScalarProperty Name="collectionCount" ColumnName="collectionCount" />
+          <ScalarProperty Name="areaId" ColumnName="areaId" />
+          <ScalarProperty Name="introduce" ColumnName="introduce" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="singerSex" ColumnName="singerSex" />
+          <ScalarProperty Name="photoUrl" ColumnName="photoUrl" />
+          <ScalarProperty Name="debutDate" ColumnName="debutDate" />
+          <ScalarProperty Name="singerStateId" ColumnName="singerStateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="song">
+      <EntityTypeMapping TypeName="musicDBModel.song">
+        <MappingFragment StoreEntitySet="song">
+          <ScalarProperty Name="songId" ColumnName="songId" />
+          <ScalarProperty Name="songName" ColumnName="songName" />
+          <ScalarProperty Name="singerId" ColumnName="singerId" />
+          <ScalarProperty Name="CDId" ColumnName="CDId" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="playCount" ColumnName="playCount" />
+          <ScalarProperty Name="downloadCount" ColumnName="downloadCount" />
+          <ScalarProperty Name="collectionCount" ColumnName="collectionCount" />
+          <ScalarProperty Name="publishDate" ColumnName="publishDate" />
+          <ScalarProperty Name="songUrl" ColumnName="songUrl" />
+          <ScalarProperty Name="cyricUrl" ColumnName="cyricUrl" />
+          <ScalarProperty Name="songTime" ColumnName="songTime" />
+          <ScalarProperty Name="typeId" ColumnName="typeId" />
+          <ScalarProperty Name="songStateId" ColumnName="songStateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="songlist">
+      <EntityTypeMapping TypeName="musicDBModel.songlist">
+        <MappingFragment StoreEntitySet="songlist">
+          <ScalarProperty Name="songlistTime" ColumnName="songlistTime" />
+          <ScalarProperty Name="songListId" ColumnName="songListId" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="songListName" ColumnName="songListName" />
+          <ScalarProperty Name="typeId" ColumnName="typeId" />
+          <ScalarProperty Name="accessCount" ColumnName="accessCount" />
+          <ScalarProperty Name="introduce" ColumnName="introduce" />
+          <ScalarProperty Name="collectionCount" ColumnName="collectionCount" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="songListStateId" ColumnName="songListStateId" />
+          <ScalarProperty Name="songlistimg" ColumnName="songlistimg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="songListWithSong">
+      <EntityTypeMapping TypeName="musicDBModel.songListWithSong">
+        <MappingFragment StoreEntitySet="songListWithSong">
+          <ScalarProperty Name="slSongId" ColumnName="slSongId" />
+          <ScalarProperty Name="songListId" ColumnName="songListId" />
+          <ScalarProperty Name="songId" ColumnName="songId" />
+          <ScalarProperty Name="collectionDate" ColumnName="collectionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="musicDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="type">
+      <EntityTypeMapping TypeName="musicDBModel.type">
+        <MappingFragment StoreEntitySet="type">
+          <ScalarProperty Name="typeId" ColumnName="typeId" />
+          <ScalarProperty Name="typeName" ColumnName="typeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userr">
+      <EntityTypeMapping TypeName="musicDBModel.userr">
+        <MappingFragment StoreEntitySet="userr">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="loginId" ColumnName="loginId" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userSex" ColumnName="userSex" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+          <ScalarProperty Name="sign" ColumnName="sign" />
+          <ScalarProperty Name="headSculptureUrl" ColumnName="headSculptureUrl" />
+          <ScalarProperty Name="registationDate" ColumnName="registationDate" />
+          <ScalarProperty Name="userStateId" ColumnName="userStateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userWithCD">
+      <EntityTypeMapping TypeName="musicDBModel.userWithCD">
+        <MappingFragment StoreEntitySet="userWithCD">
+          <ScalarProperty Name="uCDId" ColumnName="uCDId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="CDId" ColumnName="CDId" />
+          <ScalarProperty Name="collectionDate" ColumnName="collectionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userWithSinger">
+      <EntityTypeMapping TypeName="musicDBModel.userWithSinger">
+        <MappingFragment StoreEntitySet="userWithSinger">
+          <ScalarProperty Name="uSingerId" ColumnName="uSingerId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="singerId" ColumnName="singerId" />
+          <ScalarProperty Name="collectionDate" ColumnName="collectionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userWithSongList">
+      <EntityTypeMapping TypeName="musicDBModel.userWithSongList">
+        <MappingFragment StoreEntitySet="userWithSongList">
+          <ScalarProperty Name="uSongListId" ColumnName="uSongListId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="songListId" ColumnName="songListId" />
+          <ScalarProperty Name="collectionDate" ColumnName="collectionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="musicDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="adminId" />
+    </Key>
+    <Property Name="adminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="loginId" Type="varchar" MaxLength="255" />
+    <Property Name="password" Type="varchar" MaxLength="255" />
+    <Property Name="adminName" Type="varchar" MaxLength="255" />
+    <Property Name="userType" Type="int" />
+  </EntityType>
+  <EntityType Name="area">
+    <Key>
+      <PropertyRef Name="areaId" />
+    </Key>
+    <Property Name="areaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="areaName" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="cd">
+    <Key>
+      <PropertyRef Name="CDId" />
+    </Key>
+    <Property Name="CDId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CDName" Type="varchar" MaxLength="255" />
+    <Property Name="coverUrl" Type="varchar" MaxLength="255" />
+    <Property Name="songCount" Type="int" />
+    <Property Name="publishDate" Type="datetime" />
+    <Property Name="singerId" Type="int" />
+    <Property Name="introduce" Type="varchar" MaxLength="500" />
+    <Property Name="collectionCount" Type="int" />
+    <Property Name="CDstateId" Type="int" />
+  </EntityType>
+  <EntityType Name="img">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="jianjie" Type="nvarchar" MaxLength="500" />
+    <Property Name="src" Type="nvarchar" MaxLength="500" />
+    <Property Name="cdId" Type="int" />
+  </EntityType>
+  <EntityType Name="singer">
+    <Key>
+      <PropertyRef Name="singerId" />
+    </Key>
+    <Property Name="singerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="singerName" Type="varchar" MaxLength="255" />
+    <Property Name="accessCount" Type="int" />
+    <Property Name="collectionCount" Type="int" />
+    <Property Name="areaId" Type="int" />
+    <Property Name="introduce" Type="text" />
+    <Property Name="birthday" Type="datetime" />
+    <Property Name="singerSex" Type="varchar" MaxLength="50" />
+    <Property Name="photoUrl" Type="varchar" MaxLength="500" />
+    <Property Name="debutDate" Type="int" />
+    <Property Name="singerStateId" Type="int" />
+  </EntityType>
+  <EntityType Name="song">
+    <Key>
+      <PropertyRef Name="songId" />
+    </Key>
+    <Property Name="songId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="songName" Type="varchar" MaxLength="255" />
+    <Property Name="singerId" Type="int" />
+    <Property Name="CDId" Type="int" />
+    <Property Name="language" Type="varchar" MaxLength="255" />
+    <Property Name="playCount" Type="int" />
+    <Property Name="downloadCount" Type="int" />
+    <Property Name="collectionCount" Type="int" />
+    <Property Name="publishDate" Type="datetime" />
+    <Property Name="songUrl" Type="varchar" MaxLength="255" />
+    <Property Name="cyricUrl" Type="varchar" MaxLength="255" />
+    <Property Name="songTime" Type="float" />
+    <Property Name="typeId" Type="int" />
+    <Property Name="songStateId" Type="int" />
+  </EntityType>
+  <EntityType Name="songlist">
+    <Key>
+      <PropertyRef Name="songListId" />
+    </Key>
+    <Property Name="songListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" />
+    <Property Name="songListName" Type="nvarchar" MaxLength="255" />
+    <Property Name="typeId" Type="int" />
+    <Property Name="accessCount" Type="int" />
+    <Property Name="introduce" Type="nvarchar" MaxLength="2000" />
+    <Property Name="collectionCount" Type="int" />
+    <Property Name="tags" Type="nvarchar" MaxLength="255" />
+    <Property Name="songListStateId" Type="int" />
+    <Property Name="songlistimg" Type="varchar" MaxLength="500" />
+    <Property Name="songlistTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="songListWithSong">
+    <Key>
+      <PropertyRef Name="slSongId" />
+    </Key>
+    <Property Name="slSongId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="songListId" Type="int" />
+    <Property Name="songId" Type="int" />
+    <Property Name="collectionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="type">
+    <Key>
+      <PropertyRef Name="typeId" />
+    </Key>
+    <Property Name="typeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="typeName" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="userr">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="loginId" Type="nvarchar" MaxLength="255" />
+    <Property Name="password" Type="nvarchar" MaxLength="255" />
+    <Property Name="userName" Type="nvarchar" MaxLength="255" />
+    <Property Name="userSex" Type="nvarchar" MaxLength="255" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" />
+    <Property Name="phone" Type="nvarchar" MaxLength="255" />
+    <Property Name="userType" Type="int" />
+    <Property Name="sign" Type="nvarchar" MaxLength="255" />
+    <Property Name="headSculptureUrl" Type="nvarchar" MaxLength="255" />
+    <Property Name="registationDate" Type="datetime" />
+    <Property Name="userStateId" Type="int" />
+  </EntityType>
+  <EntityType Name="userWithCD">
+    <Key>
+      <PropertyRef Name="uCDId" />
+    </Key>
+    <Property Name="uCDId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" />
+    <Property Name="CDId" Type="int" />
+    <Property Name="collectionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="userWithSinger">
+    <Key>
+      <PropertyRef Name="uSingerId" />
+    </Key>
+    <Property Name="uSingerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" />
+    <Property Name="singerId" Type="int" />
+    <Property Name="collectionDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="userWithSongList">
+    <Key>
+      <PropertyRef Name="uSongListId" />
+    </Key>
+    <Property Name="uSongListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" />
+    <Property Name="songListId" Type="int" />
+    <Property Name="collectionDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <Association Name="FK__cd__singerId__1DE57479">
+    <End Role="singer" Type="Self.singer" Multiplicity="0..1" />
+    <End Role="cd" Type="Self.cd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="singer">
+        <PropertyRef Name="singerId" />
+      </Principal>
+      <Dependent Role="cd">
+        <PropertyRef Name="singerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__singer__areaId__1B0907CE">
+    <End Role="area" Type="Self.area" Multiplicity="0..1" />
+    <End Role="singer" Type="Self.singer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="area">
+        <PropertyRef Name="areaId" />
+      </Principal>
+      <Dependent Role="singer">
+        <PropertyRef Name="areaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__song__CDId__21B6055D">
+    <End Role="cd" Type="Self.cd" Multiplicity="0..1" />
+    <End Role="song" Type="Self.song" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cd">
+        <PropertyRef Name="CDId" />
+      </Principal>
+      <Dependent Role="song">
+        <PropertyRef Name="CDId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__song__singerId__20C1E124">
+    <End Role="singer" Type="Self.singer" Multiplicity="0..1" />
+    <End Role="song" Type="Self.song" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="singer">
+        <PropertyRef Name="singerId" />
+      </Principal>
+      <Dependent Role="song">
+        <PropertyRef Name="singerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__song__typeId__2A4B4B5E">
+    <End Role="type" Type="Self.type" Multiplicity="0..1" />
+    <End Role="song" Type="Self.song" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="type">
+        <PropertyRef Name="typeId" />
+      </Principal>
+      <Dependent Role="song">
+        <PropertyRef Name="typeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__songlist__typeId__2B3F6F97">
+    <End Role="type" Type="Self.type" Multiplicity="0..1" />
+    <End Role="songlist" Type="Self.songlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="type">
+        <PropertyRef Name="typeId" />
+      </Principal>
+      <Dependent Role="songlist">
+        <PropertyRef Name="typeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__songListW__singe__2D27B809">
+    <End Role="song" Type="Self.song" Multiplicity="0..1" />
+    <End Role="songListWithSong" Type="Self.songListWithSong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="song">
+        <PropertyRef Name="songId" />
+      </Principal>
+      <Dependent Role="songListWithSong">
+        <PropertyRef Name="songId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userWithC__singe__33D4B598">
+    <End Role="cd" Type="Self.cd" Multiplicity="0..1" />
+    <End Role="userWithCD" Type="Self.userWithCD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cd">
+        <PropertyRef Name="CDId" />
+      </Principal>
+      <Dependent Role="userWithCD">
+        <PropertyRef Name="CDId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userWithC__userI__300424B4">
+    <End Role="userr" Type="Self.userr" Multiplicity="0..1" />
+    <End Role="userWithCD" Type="Self.userWithCD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userr">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="userWithCD">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userWithS__singe__37A5467C">
+    <End Role="singer" Type="Self.singer" Multiplicity="0..1" />
+    <End Role="userWithSinger" Type="Self.userWithSinger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="singer">
+        <PropertyRef Name="singerId" />
+      </Principal>
+      <Dependent Role="userWithSinger">
+        <PropertyRef Name="singerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userWithS__userI__31EC6D26">
+    <End Role="userr" Type="Self.userr" Multiplicity="0..1" />
+    <End Role="userWithSinger" Type="Self.userWithSinger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userr">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="userWithSinger">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userWithS__userI__33D4B598">
+    <End Role="userr" Type="Self.userr" Multiplicity="0..1" />
+    <End Role="userWithSongList" Type="Self.userWithSongList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userr">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="userWithSongList">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_songlist_userr">
+    <End Role="userr" Type="Self.userr" Multiplicity="0..1" />
+    <End Role="songlist" Type="Self.songlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userr">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="songlist">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_songListWithSong_songlist">
+    <End Role="songlist" Type="Self.songlist" Multiplicity="0..1" />
+    <End Role="songListWithSong" Type="Self.songListWithSong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="songlist">
+        <PropertyRef Name="songListId" />
+      </Principal>
+      <Dependent Role="songListWithSong">
+        <PropertyRef Name="songListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userWithSongList_songlist">
+    <End Role="songlist" Type="Self.songlist" Multiplicity="0..1" />
+    <End Role="userWithSongList" Type="Self.userWithSongList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="songlist">
+        <PropertyRef Name="songListId" />
+      </Principal>
+      <Dependent Role="userWithSongList">
+        <PropertyRef Name="songListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="musicDBModelStoreContainer">
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="area" EntityType="Self.area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cd" EntityType="Self.cd" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="img" EntityType="Self.img" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="singer" EntityType="Self.singer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="song" EntityType="Self.song" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="songlist" EntityType="Self.songlist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="songListWithSong" EntityType="Self.songListWithSong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="type" EntityType="Self.type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userr" EntityType="Self.userr" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userWithCD" EntityType="Self.userWithCD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userWithSinger" EntityType="Self.userWithSinger" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userWithSongList" EntityType="Self.userWithSongList" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__cd__singerId__1DE57479" Association="Self.FK__cd__singerId__1DE57479">
+      <End Role="singer" EntitySet="singer" />
+      <End Role="cd" EntitySet="cd" />
+    </AssociationSet>
+    <AssociationSet Name="FK__singer__areaId__1B0907CE" Association="Self.FK__singer__areaId__1B0907CE">
+      <End Role="area" EntitySet="area" />
+      <End Role="singer" EntitySet="singer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__song__CDId__21B6055D" Association="Self.FK__song__CDId__21B6055D">
+      <End Role="cd" EntitySet="cd" />
+      <End Role="song" EntitySet="song" />
+    </AssociationSet>
+    <AssociationSet Name="FK__song__singerId__20C1E124" Association="Self.FK__song__singerId__20C1E124">
+      <End Role="singer" EntitySet="singer" />
+      <End Role="song" EntitySet="song" />
+    </AssociationSet>
+    <AssociationSet Name="FK__song__typeId__2A4B4B5E" Association="Self.FK__song__typeId__2A4B4B5E">
+      <End Role="type" EntitySet="type" />
+      <End Role="song" EntitySet="song" />
+    </AssociationSet>
+    <AssociationSet Name="FK__songlist__typeId__2B3F6F97" Association="Self.FK__songlist__typeId__2B3F6F97">
+      <End Role="type" EntitySet="type" />
+      <End Role="songlist" EntitySet="songlist" />
+    </AssociationSet>
+    <AssociationSet Name="FK__songListW__singe__2D27B809" Association="Self.FK__songListW__singe__2D27B809">
+      <End Role="song" EntitySet="song" />
+      <End Role="songListWithSong" EntitySet="songListWithSong" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userWithC__singe__33D4B598" Association="Self.FK__userWithC__singe__33D4B598">
+      <End Role="cd" EntitySet="cd" />
+      <End Role="userWithCD" EntitySet="userWithCD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userWithC__userI__300424B4" Association="Self.FK__userWithC__userI__300424B4">
+      <End Role="userr" EntitySet="userr" />
+      <End Role="userWithCD" EntitySet="userWithCD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userWithS__singe__37A5467C" Association="Self.FK__userWithS__singe__37A5467C">
+      <End Role="singer" EntitySet="singer" />
+      <End Role="userWithSinger" EntitySet="userWithSinger" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userWithS__userI__31EC6D26" Association="Self.FK__userWithS__userI__31EC6D26">
+      <End Role="userr" EntitySet="userr" />
+      <End Role="userWithSinger" EntitySet="userWithSinger" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userWithS__userI__33D4B598" Association="Self.FK__userWithS__userI__33D4B598">
+      <End Role="userr" EntitySet="userr" />
+      <End Role="userWithSongList" EntitySet="userWithSongList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_songlist_userr" Association="Self.FK_songlist_userr">
+      <End Role="userr" EntitySet="userr" />
+      <End Role="songlist" EntitySet="songlist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_songListWithSong_songlist" Association="Self.FK_songListWithSong_songlist">
+      <End Role="songlist" EntitySet="songlist" />
+      <End Role="songListWithSong" EntitySet="songListWithSong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userWithSongList_songlist" Association="Self.FK_userWithSongList_songlist">
+      <End Role="songlist" EntitySet="songlist" />
+      <End Role="userWithSongList" EntitySet="userWithSongList" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
